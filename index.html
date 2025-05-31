@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aboutme｜tngw</title>
+  
+  <!-- OGP（TwitterとかにURL貼った時プレビューで出るやつ）の設定 -->
+<meta property="og:title" content="【ページタイトル】">
+<meta property="og:description" content="【ページ説明文（改行不可）】">
+<meta property="og:image" content="https://【Githubアカウント名】.github.io/【リポジトリ名】/ogp.png">
+<meta property="og:url" content="https://【Githubアカウント名】.github.io/【リポジトリ名】/">
+<meta property="og:type" content="website">
+  
+  <!-- フォント読み込み -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+  /* --- 全体の基本設定 --- */
+  * {
+    box-sizing: border-box; /* 余白と枠線を含めて幅・高さを計算 */
+  }
+  body {
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif; /* フォント */
+    background: #f0f0f5; /* 全体の背景 */
+    color: #4f4f4f; /* 全体の文字色 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem; /* 上下左右の余白 */
+  }
+a{color: #4169e1;
+  text-decoration: none; 
+}
+a :hover{color: rgb(196, 196, 196);
+  text-decoration: none; 
+}
+  /* --- プロフィールセクション --- */
+  .profile {
+    text-align: center; /* 中央寄せ */
+  }
+
+  /* --- アバターと切り替えQR --- */
+  .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.avatar.qr {
+  width: 130px;
+  height: 130px;
+  border-radius: 12px;
+}
+
+  /* --- タイトル部分（最上部） --- */
+  .title {
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin: 1.4rem 0 0.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.0rem;
+    margin: 0;
+  }
+
+  .desc {
+    font-size: 0.8rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+
+  /* --- SNSアイコン（テンプレはX）リンク --- */
+.sns-link {
+  display: inline-flex;   /* アイコン中央揃え */
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  border-radius: 8px;     /* 角丸 */
+  width: 25px;
+  height: 25px;
+  margin: 0.5rem 0;
+  padding: 5px;
+}
+
+.sns-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+  /* --- 全カード共通スタイル --- */
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 優しい影 */
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .card h2 {
+    font-size: 1.4rem; /* カードテキスト見出し */
+    margin: 0 0 0.2rem;
+    font-weight: bold;
+  }
+
+  .card p {
+    font-size: 0.9rem; /* カードテキスト本文 */
+    margin: 0;
+    color: #555;
+  }
+
+
+  /* --- カードの一覧 --- */
+  .card-list {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem; /* カード同士の間隔 */
+  }
+
+  /* --- リンクカードの基本スタイル --- */
+  .link-card {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* 下線を消す */
+    color: #333;
+    font-weight: 500;
+    transition: transform 0.1s ease, box-shadow 0.2s ease; /* ホバーアニメ */
+  }
+
+  .link-card:hover {
+    transform: translateY(-2px); /* ホバーで少し上に動く */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15); /* 浮いてる影をつける */
+  }
+
+  .link-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 1.2rem;
+    object-fit: contain; /* アイコンが崩れないように */
+  }
+
+  /* --- フッター（著作情報） --- */
+  .footer {
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: #888;
+    text-align: center;
+  }
+
+  /* --- モバイル用調整 --- */
+  @media (max-width: 600px) {
+    .title {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+</head>
+
+<!-- ここからページの本文 -->
+<body>
+  <div class="profile">
+    <img src="avatar-qr.png" alt="プロフィール画像" class="avatar" id="avatar-img">
+    <h2 class="title">わかくさ</h2>
+    <h3 class="subtitle">たまに絵を描くPBWプレイヤー</h3>
+    <p class="desc"></p>
+  </div>
+
+  <div class="card-list">
+
+<!-- ここから個別カード -->
+
+    <div class="card">
+      <h2>各種SNSアカウントについて</h2>
+      <p>過去垢（「@wakakusa0815」など）はすべて削除済みで現在のPBW用アカウントは「@horizonblue_arc」しか存在しません。話題によって特に垢分けしておらず、まれに腐っていたり成人向け気味だったりする話題や自作二次創作絵も出てきますので、そういった耐性がある成人済みの方のフォローを強く推奨しています。
+
+リムミュブロなどご随意に。ゲーム内でお見かけした方のアカウントを無言フォローすることもあります。<br>
+
+<br>
+
+🚫画像類の転載・加工・二次利用・AI学習への利用を固く禁止します<br>
+🚫Do not reupload my art<br>
+🚫All images are not for AI training<br>
+🚫アフィリエイト/PR記事やまとめブログなどへのポストの無断引用はお控えください<br>
+<br>
+男女BLを問わず成人向けも嗜みますが、公開アカウントでそういった成分をそのまま出すことはなく、後述のぷらいべったーやふせったーなどに退避させています。
+
+      </p>
+    </div>
+    
+
+
+<!-- サンプルカード -->
+
+    <a href="https://x.com/horizonblue_arc" target="_blank" class="link-card card">
+      <img src="i-x.png" class="link-icon" alt="">
+      <div>
+        <h2>X</h2>
+        <p>なんだかんだでここにいる</p>
+      </div>
+    </a>
+
+    <a href="https://knhk.ltt.jp/p/" target="_blank" class="link-card card">
+      <img src="home.png" class="link-icon" alt="">
+      <div>
+        <h2>ぼちぼち倉庫</h2>
+        <p>個人サイト的なアレ</p>
+      </div>
+    </a>
+ 
+
+        <a href="https://mixi.social/@horizonblue" target="_blank" class="link-card card">
+      <img src="i-mixi2.png" class="link-icon" alt="">
+      <div>
+        <h2>mixi2</h2>
+        <p>マターリヌクモリティ（死語）</p>
+      </div>
+    </a>
+
+
+                <a href="https://taittsuu.com/users/horizonblue" target="_blank" class="link-card card">
+      <img src="i-tai.png" class="link-icon" alt="">
+      <div>
+        <h2>タイッツー</h2>
+        <p>低浮上</p>
+      </div>
+      
+                <a href="hhttps://privatter.me/user/horizonblue" target="_blank" class="link-card card">
+      <img src="pencil.png" class="link-icon" alt="">
+      <div>
+        <h2>ぷらいべったーぷらす</h2>
+        <p>ワンクッション置きたい時用</p>
+      </div>
+
+    </a>
+    </a>
+
+    <div class="card">
+      <h2>稼働中のキャラたち（の一部）</h2>
+      <p> 
+<strong>第六猟兵</strong><br>
+🥕<a href="https://tw6.jp/character/status/f01504" target="_blank">草野・千秋</a><br>
+🐰<a href="https://tw6.jp/character/status/f23663" target="_blank">藤長・和正</a><br>
+<br>
+<strong>チェインパラドクス</strong><br>
+🎨<a href="https://tw7.t-walker.jp/character/status/g00586" target="_blank">調月・野映</a><br>
+🌱<a href="https://tw7.t-walker.jp/character/status/g02637" target="_blank">七瀬・若葉</a><br>
+<br>
+<strong>ルートエデン</strong><br>
+🍛<a href="https://tw8.t-walker.jp/character/status/h02520" target="_blank">大海原・藍生</a>
+
+
+      </p>
+    </div>
+
+        <div class="card">
+      <h2>PBW以外に好きなもの</h2>
+      <p> 
+懐かしい感じのスクエニ系ゲーム（DQ・FF・LAL・聖剣など）、FE、俺の屍を越えてゆけ、どこでもいっしょ、ポケモンなどを少々
+
+透明水彩、文房具、無印良品、ぬいぐるみ（notキャラぬい）
+
+      </p>
+    </div>
+<!-- 個別カードここまで -->
+
+  </div>
+
+<!-- フッター -->
+  <footer class="footer">
+    <small></small>
+  </footer>
+
+<!-- アバター切り替えスクリプト 切り替え用QRコード画像はここで指定しています-->
+<script>
+  const avatarImg = document.getElementById("avatar-img");
+  let isAvatar = true;
+
+  avatarImg.addEventListener("click", () => {
+    if (isAvatar) {
+      avatarImg.src = "avatar-qr.png";
+      avatarImg.classList.add("qr");
+    } else {
+      avatarImg.src = "avatar.png";
+      avatarImg.classList.remove("qr");
+    }
+    isAvatar = !isAvatar;
+  });
+</script>
+
+</body>
+</html>
